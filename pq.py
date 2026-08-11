@@ -32,6 +32,8 @@ def insert(q, e):
 
 
 def pop(q):
+    if len(q) == 1:
+        raise IndexError("pop from empty priority queue")
     e = q[1]
     q[1] = q[len(q) - 1]
     del q[len(q) - 1]
