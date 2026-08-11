@@ -2,7 +2,7 @@ pq = lambda: [None]
 left = lambda i: i * 2
 right = lambda i: i * 2 + 1
 parent = lambda i: i // 2
-leaf = lambda q, i: right(i) >= len(q)
+leaf = lambda q, i: left(i) >= len(q)
 
 
 def _bubble_up(q, i):
@@ -14,6 +14,8 @@ def _bubble_up(q, i):
 def _minchild(q, i):
     l = left(i)
     r = right(i)
+    if r >= len(q):
+        return l
     return l if q[l] < q[r] else r
 
 
